@@ -21,24 +21,24 @@ class Lottery
         ret << members.delete_if{ |member| member == ret.last}.sample
       end
     end
-    p ret
+    ret
   end
 
 end
 
 
 
-# lottery = Lottery::new 2
+# lottery = Lottery::new 3
 # lottery.add('Ieyasu',1)
 # lottery.add('Hideyoshi', 2)
 # lottery.add('Nobunaga',5)
 # lottery.add('Yoritomo', 2)
 # lottery.add('Kamatari', 10)
 
-# lottery.winners
+# p lottery.winners
 
 # results = { }
-# 1000000.times do
+# 100000.times do
 #   lottery.winners.each do |member|
 #     results[member] = 0 unless results[member]
 #     results[member] += 1
