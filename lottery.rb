@@ -12,6 +12,11 @@ class Lottery
   end
 
   def winners
+    members = @members.uniq
+    members.size < @quantity ? members : draw_lots
+  end
+
+  def draw_lots
     ret = []
     members = @members.dup
     @quantity.times do
@@ -21,7 +26,7 @@ class Lottery
         ret << members.delete_if{ |member| member == ret.last}.sample
       end
     end unless @members.empty?
-    ret
+    ret.delete_if{|m|m.nil?}
   end
 
 end
