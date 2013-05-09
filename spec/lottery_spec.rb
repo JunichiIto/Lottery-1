@@ -70,7 +70,9 @@ describe Lottery do
     end
 
     it "応募者全員を返す" do
-      expect(lottery.winners).to eq ['Ieyasu', 'Hideyoshi']
+      expect(lottery.winners.size).to eq 2
+      expect(lottery.winners).to include 'Ieyasu'
+      expect(lottery.winners).to include 'Hideyoshi'
     end
 
     it "当選者の数は商品数より少ない" do
