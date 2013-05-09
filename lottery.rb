@@ -20,7 +20,7 @@ class Lottery
       else
         ret << members.delete_if{ |member| member == ret.last}.sample
       end
-    end
+    end unless @members.empty?
     ret
   end
 
