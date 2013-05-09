@@ -6,27 +6,16 @@ class Lottery
   end
   
   def add member, weight
-    weight.times do
-      @members << member
-    end
+    @members.concat Array.new(weight, member)
   end
 
   def winners
-    members = @members.uniq
-    members.size < @quantity ? members : draw_lots
-  end
-
-  def draw_lots
     ret = []
     members = @members.dup
     @quantity.times do
-      if ret[0] == nil
-        ret << members.sample
-      else
-        ret << members.delete_if{ |member| member == ret.last}.sample
-      end
-    end unless @members.empty?
-    ret.delete_if{|m|m.nil?}
+      ret << members.sample
+      members.delete(ret.last)
+    end
+    ret.compact
   end
-
 end
