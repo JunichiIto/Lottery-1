@@ -70,7 +70,7 @@ describe Lottery do
     end
 
     it "応募者全員を返す" do
-      expect(lottery.winners.size).to eq 2
+      expect(lottery.winners).to have(2).items
       expect(lottery.winners).to include 'Ieyasu'
       expect(lottery.winners).to include 'Hideyoshi'
     end
